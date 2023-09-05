@@ -1,4 +1,4 @@
-function obtenerNombre(codigo){
+let obtenerNombre = (codigo) => {
     return codigo.split(":")[1]
 }
 
