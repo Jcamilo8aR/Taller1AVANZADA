@@ -132,7 +132,7 @@ let analizarPlanetas = (planetas)=>{
     oxigeno.forEach(function(nivelOxigeno){
         totalOxigeno = totalOxigeno+nivelOxigeno
     })
-    totalOxigeno=totalOxigeno*100
+    totalOxigeno= Math.floor(totalOxigeno*100)
 
 
     //OXIGENO NEGATIVO

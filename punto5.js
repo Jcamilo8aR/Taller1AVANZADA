@@ -5,7 +5,7 @@ let deduccion = 0
 let salarioMensual = (numVentas) => {
     let comVentas = comision * numVentas
     salario = salario + comVentas 
-    deduccion = salario * 5/100
+    deduccion = (comVentas * 5)/100
     salario = salario - deduccion
 
     return(`El salario mensual de este mes con ${numVentas} ventas es de: $${salario}`);

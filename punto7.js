@@ -1,7 +1,18 @@
-let numeros = [4,2,5,6,2,1,6,7,10,19]
+let numeros = []
 
-console.log(numeros.length);
-
-function cercano(){
-    
+let generarNumeros=()=>{
+    for(let i=0 ; i <= 9; i++){
+        let num = Math.floor((Math.random() * (200)));
+        numeros.push(num)
+    }
+    //console.log(numeros)
+    // return numeros
 }
+
+let numCercano=()=>{
+    let menor =(Math.min(...numeros));
+    console.log(`Numero mas cercano a cero: ${menor}`);
+}
+
+generarNumeros()
+numCercano()

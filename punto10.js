@@ -1,15 +1,15 @@
 let alimentos = [
   {
     nombre: "Brocoli",
-    tipo: "vegetal",
-    nivelEnergia: 300
+    tipo: "Vegetal",
+    nivelEnergia: 100
   }
 ]
 
 //AÑADIR ALIMENTOS 
 
 //GENERAR NOMBRE
-let generarNombre = (longitud) => {
+let generarNombre=(longitud)=>{
   let chars = "abcdefghijklmnopqrstuvwxyz"
   let charLength = chars.length
   let nombre = ""
@@ -20,76 +20,50 @@ let generarNombre = (longitud) => {
 }
 
 //AÑADIR TIPO ALIMENTO
-let tipos = ["Animal", "Vegetal", "Insecto"]
-let num = Math.floor((Math.random() * (3)));
+let generarAliemento=()=>{
+  let tipos = ["Animal", "Vegetal", "Insecto"]
+  let num = Math.floor((Math.random() * (3)));
+  return tipos[num]
+} 
+
 
 //AÑADIR NIVEL ENERGIA
-let energia = Math.floor((Math.random() * (500)));
+let generarNumero=()=>{
+  let energia = Math.floor((Math.random() * (500 - 100 +1)+100));
+  return energia
+} 
 
 
 for(let i=0; i<= 300;i++){
   let alimento={
     nombre: generarNombre(5),
-    tipo: tipos[num],
-    nivelEnergia: energia
+    tipo: generarAliemento(),
+    nivelEnergia: generarNumero()
   }
 
   alimentos.push(alimento)
 }
 
 
-
-
-
-console.log(alimentos.length);
-
 //OBTENER ALIMENTOS TIPO VEGETAL CON 200 O MAS UNIDADES DE ENERGIA
 let principal = (secundaria)=>{
   setTimeout(function(){
     let find = alimentos.filter(function(alimento){
-      return (alimento.nivelEnergia >= 200)
+      return (alimento.tipo == "Vegetal" && alimento.nivelEnergia >= 200)
     })
-    secundaria()
+    console.log(`Alimentos tipo Vegetal con mas de 200 unidades de energia:`);
     console.log(find);
-  },)
+    secundaria()
+  },5000)
 }
 
 principal(function(){
-
-  let energia=alimentos.map(function(energia){
-    return (energia.nivelEnergia)
+  let find = alimentos.filter(function(alimento){
+    return (alimento.tipo == "Vegetal")
+  })
+  let totalEnergia = 0
+    find.forEach(function(nivelEnergia){
+      totalEnergia = totalEnergia+nivelEnergia.nivelEnergia
+  })
+  console.log(`Total de energia entregada por alimentos tipo Vegetal: ${totalEnergia}`);
 })
-
-let totalEnergia = 0
-  energia.forEach(function(nivelEnergia){
-    totalEnergia = totalEnergia+nivelEnergia
-})
-console.log("Total energia: " +totalEnergia);
-})
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* function makeid(length) {
-    let result = '';
-    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    const charactersLength = characters.length;
-    let counter = 0;
-    while (counter < length) {
-      result += characters.charAt(Math.floor(Math.random() * charactersLength));
-      counter += 1;
-    }
-    return result;
-}
-
-console.log(makeid(5)); */

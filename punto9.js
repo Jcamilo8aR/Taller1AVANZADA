@@ -12,7 +12,7 @@ let crearPadwan = (nombre, planeta, edad, estatura, clasPadwan)=>{
     },2000)
 }
 
-crearPadwan("AQWq","asda",16,140,function(padawan){
+crearPadwan("Padawan","asda",16,140,function(padawan){
     if(padawan.edadEstudiante < 15){
         console.log(`${padawan.nombreEstudiante}, tienes ${padawan.edadEstudiante} años, por lo que vas a la clase de manejo de la fuerza`)
     }else{
